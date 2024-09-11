@@ -41,8 +41,8 @@ public partial struct PlayerRotateJob : IJobEntity
 
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        rotationValue.Value = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-        transform.up = rotationValue.Value;
+        rotationValue = new Vector2(mousePosition.x - transform.Position.x, mousePosition.y - transform.Position.y);
+        transform.Rotation.value. = rotationValue;
 
     }
 }
