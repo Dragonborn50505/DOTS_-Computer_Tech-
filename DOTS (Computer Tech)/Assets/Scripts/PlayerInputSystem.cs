@@ -16,6 +16,10 @@ public partial class PlayerInputSystem : SystemBase
     {
         RequireForUpdate<PlayerTag>();
         RequireForUpdate<PlayerMoveInput>();
+        
+        
+        
+        
         InputActions = new GameInputTest();
 
     }
@@ -37,8 +41,11 @@ public partial class PlayerInputSystem : SystemBase
     protected override void OnUpdate()
     {
         Vector2 moveInput = InputActions.GamePlay.Move.ReadValue<Vector2>();
-
         SystemAPI.SetSingleton(new PlayerMoveInput { Value = moveInput });
+        
+        //Test
+        //int rotateInput = InputActions.GamePlay.Rotate.ReadValue<int>();
+        //SystemAPI.SetSingleton(new PlayerMoveInput { Value = rotateInput });
     }
 
 

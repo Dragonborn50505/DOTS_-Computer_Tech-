@@ -37,6 +37,11 @@ public class PlayerAuthoring : MonoBehaviour
             {
                 Value = authoring.ProjectileLifeTime
             });
+            
+            
+            
+            //Test
+            AddComponent<PlayerRotateInput>(playerEntity);
         }
     }
 }
@@ -82,9 +87,15 @@ public struct IsDestroying : IComponentData
     
 }
 
-
-
 public struct FireProjectileTag : IComponentData, IEnableableComponent
 {
 
+}
+
+
+
+//Test 
+public struct PlayerRotateInput : IComponentData
+{
+    public int Value;
 }
