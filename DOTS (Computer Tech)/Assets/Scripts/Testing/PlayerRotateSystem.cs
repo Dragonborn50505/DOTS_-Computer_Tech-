@@ -1,12 +1,13 @@
 using Unity.Burst;
 using Unity.Entities;
+using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
 //PlayerRotateSystem
 
 
-/*
+
 [UpdateBefore(typeof(TransformSystemGroup))]
 public partial struct PlayerRotateSystem : ISystem
 {
@@ -23,7 +24,7 @@ public partial struct PlayerRotateSystem : ISystem
 }
 
 [BurstCompile]
-*/
+
 
 public partial struct PlayerRotateJob : IJobEntity
 {
@@ -48,6 +49,10 @@ public partial struct PlayerRotateJob : IJobEntity
         //float rotation = input.Value * DeltaTime;
         //transform.RotateZ(rotation);
         //Debug.Log("RotateZ");
+
+        quaternion rotation = transform.Rotation;
+        rotation = math.mul(rotation, quaternion.AxisAngle(new float3(0, 0, 1), input.Value * 5 * DeltaTime));
+        transform.Rotation = rotation;
 
     }
 }

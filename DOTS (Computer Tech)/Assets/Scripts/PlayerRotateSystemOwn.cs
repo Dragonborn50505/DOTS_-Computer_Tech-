@@ -40,7 +40,7 @@ public partial struct PlayerRotateJob2 : IJobEntity
         rotationValue = new Vector2(mousePosition.x - transform.Position.x, mousePosition.y - transform.Position.y);
         */
         
-        float rotation = input2.Value.x * DeltaTime;
+        //float rotation = input2.Value.x * DeltaTime;
         
     }
 }

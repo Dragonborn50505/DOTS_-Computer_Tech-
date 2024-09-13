@@ -97,5 +97,5 @@ public struct FireProjectileTag : IComponentData, IEnableableComponent
 //Test 
 public struct PlayerRotateInput : IComponentData
 {
-    public int Value;
+    public float Value;
 }

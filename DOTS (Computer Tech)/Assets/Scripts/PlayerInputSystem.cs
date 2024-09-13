@@ -40,12 +40,11 @@ public partial class PlayerInputSystem : SystemBase
 
     protected override void OnUpdate()
     {
+        float rotateInput = InputActions.GamePlay.Rotate.ReadValue<float>();
+        SystemAPI.SetSingleton(new PlayerRotateInput { Value = rotateInput });
+
         Vector2 moveInput = InputActions.GamePlay.Move.ReadValue<Vector2>();
         SystemAPI.SetSingleton(new PlayerMoveInput { Value = moveInput });
-        
-        //Test
-        //int rotateInput = InputActions.GamePlay.Rotate.ReadValue<int>();
-        //SystemAPI.SetSingleton(new PlayerMoveInput { Value = rotateInput });
     }
 
 
