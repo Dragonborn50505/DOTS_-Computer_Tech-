@@ -4,6 +4,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
+
 public class EnemyAuthoring : MonoBehaviour
 {
     public float MoveSpeed;
@@ -13,6 +14,8 @@ public class EnemyAuthoring : MonoBehaviour
         public override void Bake(EnemyAuthoring authoring)
         {
             Entity enemyEntity = GetEntity(TransformUsageFlags.Dynamic);
+
+
             AddComponent<EnemyTag>(enemyEntity);
 
             AddComponent(enemyEntity, new EnemyMoveSpeed
@@ -21,6 +24,7 @@ public class EnemyAuthoring : MonoBehaviour
             });
 
             AddComponent<EnemyRotateInput>(enemyEntity);
+
         }
     }
  }

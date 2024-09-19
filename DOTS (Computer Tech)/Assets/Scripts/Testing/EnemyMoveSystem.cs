@@ -5,6 +5,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 [UpdateBefore(typeof(TransformSystemGroup))]
 public partial struct EnemyMoveSystem : ISystem
@@ -43,7 +44,11 @@ public partial struct EnemyMoveJob : IJobEntity
 
     private void Execute(ref LocalTransform transform, EnemyMoveSpeed speed)
     {
-        float3 tagetPosition = PlayerLocalTransform.Position - transform.Position;
-        transform.Position += tagetPosition * speed.Value * DeltaTime;
+        //float3 tagetPosition = PlayerLocalTransform.Position - transform.Position;
+        Vector3 tagetPosition = PlayerLocalTransform.Position - transform.Position;
+        tagetPosition.Normalize();
+        float3 TargetPos = tagetPosition;
+
+        transform.Position += TargetPos * speed.Value * DeltaTime;
     }
 }
